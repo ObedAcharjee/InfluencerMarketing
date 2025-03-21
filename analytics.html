@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InfluenceConnect - Analytics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+    <div class="logo">InfluenceConnect</div>
+    <div class="menu-btn">
+      <div class="menu-btn__bar"></div>
+      <div class="menu-btn__bar"></div>
+      <div class="menu-btn__bar"></div>
+    </div>
+  </header>
+  <nav class="menu-overlay">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="influencers.html"><i class="fas fa-users"></i> Influencers</a>
+    <a href="brands.html"><i class="fas fa-building"></i> Brands</a>
+    <a href="campaigns.html"><i class="fas fa-bullhorn"></i> Campaigns</a>
+    <a href="case-studies.html"><i class="fas fa-book-open"></i> Case Studies</a>
+    <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+  
+  <main>
+    <h1 style="text-align: center; margin: 2rem 0;">Analytics</h1>
+    <section class="analytics-container">
+      <!-- Analytics Card 1 -->
+      <div class="analytics-card">
+        <h2>Total Engagement</h2>
+        <p>Our campaigns have generated over 1.2 million interactions, encompassing likes, shares, comments, and direct messages. This high level of engagement indicates that our content                 	resonates deeply with our audience, fostering active participation and community building. Such interactions not only enhance brand visibility but also cultivate trust and loyalty 	among our followers.</p>
+        <div class="analytics-chart">
+          <canvas id="engagementChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Analytics Card 2 -->
+      <div class="analytics-card">
+        <h2>Campaign Reach</h2>
+        <p>Through strategic collaborations with influencers across various platforms, our campaigns have reached over 5 million users globally. This extensive reach ensures that our brand 	message is disseminated widely, capturing the attention of diverse demographics and expanding our potential customer base. Such widespread visibility is crucial for establishing a 	strong market presence and driving brand recognition.</p>
+        <div class="analytics-chart">
+          <canvas id="reachChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Analytics Card 3 -->
+      <div class="analytics-card">
+        <h2>Conversion Rate</h2>
+        <p>Our targeted campaigns have achieved a conversion rate of 12%, meaning that a significant portion of our engaged audience has taken desired actions, such as making a purchase, 	signing up for a newsletter, or downloading an app. This efficiency in turning interest into action underscores the effectiveness of our marketing strategies and the compelling 	nature of our offerings.</p>
+        <div class="analytics-chart">
+          <canvas id="conversionChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Analytics Card 4 -->
+      <div class="analytics-card">
+        <h2>ROI on Campaigns</h2>
+        <p>With a return on investment of 350%, our data-driven strategies have proven to be highly profitable. For every dollar invested in our campaigns, we have generated $3.50 in 	revenue. This substantial ROI reflects our ability to allocate resources effectively, optimize marketing efforts, and deliver outstanding value to our stakeholders, thereby 	accelerating brand growth and profitability.</p>
+        <div class="analytics-chart">
+          <canvas id="roiChart"></canvas>
+        </div>
+      </div>
+    </section>
+  </main>
+    <script>
+    const menuBtn = document.querySelector('.menu-btn');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menuBtn.contains(e.target) && !menuOverlay.contains(e.target)) {
+        menuBtn.classList.remove('active');
+        menuOverlay.classList.remove('active');
+      }
+    });
+     
+    // Engagement Chart (Line Chart)
+    new Chart(document.getElementById('engagementChart'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Monthly Engagement',
+          data: [150000, 180000, 210000, 240000, 270000, 300000],
+          borderColor: '#ff6b6b',
+          tension: 0.4,
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' }
+        }
+      }
+    });
+
+    // Reach Chart (Bar Chart)
+    new Chart(document.getElementById('reachChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Instagram', 'TikTok', 'YouTube', 'Twitter'],
+        datasets: [{
+          label: 'Users Reached (Millions)',
+          data: [2.1, 1.8, 0.9, 0.2],
+          backgroundColor: ['#ff6b6b', '#ff9f43', '#54a0ff', '#2ecc71']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' }
+        }
+      }
+    });
+
+    // Conversion Chart (Doughnut Chart)
+    new Chart(document.getElementById('conversionChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Converted', 'Not Converted'],
+        datasets: [{
+          data: [12, 88],
+          backgroundColor: ['#ff6b6b', '#e0e0e0']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'bottom' }
+        }
+      }
+    });
+
+    // ROI Chart (Bar Chart)
+    new Chart(document.getElementById('roiChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+        datasets: [{
+          label: 'Investment ($)',
+          data: [50000, 75000, 60000, 90000],
+          backgroundColor: '#ff9f43'
+        },
+        {
+          label: 'Revenue ($)',
+          data: [175000, 262500, 210000, 315000],
+          backgroundColor: '#ff6b6b'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' }
+        },
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
