@@ -27,11 +27,9 @@
     <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
   </nav>
-  
   <main>
     <h1 style="text-align: center; margin: 2rem 0;">Analytics</h1>
     <section class="analytics-container">
-      <!-- Analytics Card 1 -->
       <div class="analytics-card">
         <h2>Total Engagement</h2>
         <p>Our campaigns have generated over 1.2 million interactions, encompassing likes, shares, comments, and direct messages. This high level of engagement indicates that our content                 	resonates deeply with our audience, fostering active participation and community building. Such interactions not only enhance brand visibility but also cultivate trust and loyalty 	among our followers.</p>
@@ -39,8 +37,6 @@
           <canvas id="engagementChart"></canvas>
         </div>
       </div>
-
-      <!-- Analytics Card 2 -->
       <div class="analytics-card">
         <h2>Campaign Reach</h2>
         <p>Through strategic collaborations with influencers across various platforms, our campaigns have reached over 5 million users globally. This extensive reach ensures that our brand 	message is disseminated widely, capturing the attention of diverse demographics and expanding our potential customer base. Such widespread visibility is crucial for establishing a 	strong market presence and driving brand recognition.</p>
@@ -48,8 +44,6 @@
           <canvas id="reachChart"></canvas>
         </div>
       </div>
-
-      <!-- Analytics Card 3 -->
       <div class="analytics-card">
         <h2>Conversion Rate</h2>
         <p>Our targeted campaigns have achieved a conversion rate of 12%, meaning that a significant portion of our engaged audience has taken desired actions, such as making a purchase, 	signing up for a newsletter, or downloading an app. This efficiency in turning interest into action underscores the effectiveness of our marketing strategies and the compelling 	nature of our offerings.</p>
@@ -57,8 +51,6 @@
           <canvas id="conversionChart"></canvas>
         </div>
       </div>
-
-      <!-- Analytics Card 4 -->
       <div class="analytics-card">
         <h2>ROI on Campaigns</h2>
         <p>With a return on investment of 350%, our data-driven strategies have proven to be highly profitable. For every dollar invested in our campaigns, we have generated $3.50 in 	revenue. This substantial ROI reflects our ability to allocate resources effectively, optimize marketing efforts, and deliver outstanding value to our stakeholders, thereby 	accelerating brand growth and profitability.</p>
@@ -83,8 +75,7 @@
         menuOverlay.classList.remove('active');
       }
     });
-     
-    // Engagement Chart (Line Chart)
+
     new Chart(document.getElementById('engagementChart'), {
       type: 'line',
       data: {
@@ -104,8 +95,6 @@
         }
       }
     });
-
-    // Reach Chart (Bar Chart)
     new Chart(document.getElementById('reachChart'), {
       type: 'bar',
       data: {
@@ -124,7 +113,6 @@
       }
     });
 
-    // Conversion Chart (Doughnut Chart)
     new Chart(document.getElementById('conversionChart'), {
       type: 'doughnut',
       data: {
@@ -142,7 +130,6 @@
       }
     });
 
-    // ROI Chart (Bar Chart)
     new Chart(document.getElementById('roiChart'), {
       type: 'bar',
       data: {
